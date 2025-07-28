@@ -1,0 +1,35 @@
+<?php
+// File: index.php
+
+$dir = '.'; // current directory
+$items = scandir($dir);
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>File Browser</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        ul { list-style-type: none; padding: 0; }
+        li { margin: 5px 0; }
+        a { text-decoration: none; color: blue; }
+    </style>
+</head>
+<body>
+    <h2>Directory listing for: <?php echo realpath($dir); ?></h2>
+    <ul>
+        <?php foreach ($items as $item): ?>
+            <?php if ($item === '.') continue; ?>
+            <li>
+                <?php if (is_dir($item)): ?>
+                    📁 <strong><?php echo htmlspecialchars($item); ?></strong>
+                <?php else: ?>
+                    📄 <a href="<?php echo urlencode($item); ?>"><?php echo htmlspecialchars($item); ?></a>
+                <?php endif; ?>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</body>
+</html>
